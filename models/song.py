@@ -22,7 +22,7 @@ class Song(db.Model):
         self.lyrics = lyrics
 
     def json(self):
-        return {"title": self.title, "artist": self.artist, "song_link": self.song_link, "lyrics": self.lyrics, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {"id": self.id, "title": self.title, "artist": self.artist, "song_link": self.song_link, "lyrics": self.lyrics, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
         db.session.add(self)
@@ -32,7 +32,7 @@ class Song(db.Model):
     @classmethod
     def find_all(cls):
         songs = Song.query.all()
-        return [song.json() for song in songs]
+        return songs
 
     @classmethod
     def find_by_id(cls, song_id):
