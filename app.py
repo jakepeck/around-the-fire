@@ -5,7 +5,7 @@ from flask_migrate import Migrate
 # only for flask migrate
 from models import story, song
 # # only for flask migrate
-# from resources import story, song
+from resources import story, song
 from models.db import db
 
 
@@ -23,7 +23,10 @@ db.init_app(app)
 migrate = Migrate(app, db)
 
 # Leave resources
-# api.add_resource(Users, '/users')
-# api.add_resource(SingleUser, '/users/<int:id>')
+api.add_resource(story.Stories, '/stories')
+api.add_resource(story.StoryDetail, '/stories/<int:story_id>')
+api.add_resource(song.Songs, '/songs')
+api.add_resource(song.SongDetail, '/songs/<int:song_id>')
+
 if __name__ == '__main__':
     app.run(debug=True)

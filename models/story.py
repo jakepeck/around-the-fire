@@ -22,7 +22,7 @@ class Story(db.Model):
         self.content = content
 
     def json(self):
-        return {"title": self.title, "author": self.author, "story_image": self.story_image, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
+        return {"id": self.id, "title": self.title, "author": self.author, "story_image": self.story_image, "content": self.content, "created_at": str(self.created_at), "updated_at": str(self.updated_at)}
 
     def create(self):
         db.session.add(self)
@@ -32,7 +32,7 @@ class Story(db.Model):
     @classmethod
     def find_all(cls):
         stories = Story.query.all()
-        return [story.json() for story in stories]
+        return stories
 
     @classmethod
     def find_by_id(cls, story_id):
