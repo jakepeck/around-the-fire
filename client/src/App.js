@@ -41,6 +41,12 @@ function App() {
     getSongs()
   }, [])
 
+  if (expandStories) {
+    return <AllStories stories={stories} />
+  }
+  if (expandSongs) {
+    return <AllSongs songs={songs} />
+  }
   return (
     <div className="main-wrapper">
       <div className="left">
