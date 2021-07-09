@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gloria+Hallelujah&family=Shadows+Into+Light&family=Tourney:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap');
 
 .main-wrapper {
   display: flex;
@@ -104,6 +105,14 @@ h2 {
   justify-content: center;
   padding: 1rem;
   border: 2px solid white;
+}
+
+.title {
+  width: 600px;
+  margin: 0 auto;
+  font-family: 'Nosifer', cursive;
+  text-align: center;
+  font-size: 1.5em;
 }
 
 @media screen and (max-width: 1000px) {

@@ -36,8 +36,10 @@ const StoryCard = (props) => {
 
   return (
     <div className="story-card">
+      <div className="title">
+        <h1>{props.story.title}</h1>
+      </div>
       <img src={props.story.story_image} alt="storyImg"></img>
-      <h1>{props.story.title}</h1>
       <h2>{props.story.author}</h2>
       {content ? (
         <div>
