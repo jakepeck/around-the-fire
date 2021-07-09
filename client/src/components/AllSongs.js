@@ -20,7 +20,7 @@ const AllSongs = (props) => {
   })
 
   return (
-    <div>
+    <div className="all-songs">
       <button onClick={() => toggleExpandSongs(false)}>Back to Home</button>
       <button onClick={() => toggleModalOpen(true)}>Contribute Song</button>
       <h2>Song List:</h2>

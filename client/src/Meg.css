@@ -56,8 +56,53 @@
   width: 500px;
 }
 
+.story-card {
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgb(38, 34, 54);
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+  margin: 1.5rem auto;
+  border: 2px solid white;
+  /* max-height: 50vh; */
+}
+
+.story-card p {
+  padding: 1rem;
+  margin: 0 auto;
+  font-family: Georgia, Helvetica, sans-serif;
+}
+
+.story-card h1,
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
+.song-card p {
+  margin: 1rem auto;
+  font-family: Georgia, Helvetica, sans-serif;
+}
+
+.song-card h1,
+h2 {
+  padding: 0;
+  margin: 0;
+}
+
 .song-card {
-  max-width: 50vw;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  background-color: rgb(32, 32, 32);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
 }
 @media screen and (max-width: 1000px) {
   .main-wrapper {
@@ -88,3 +133,59 @@
     top: 32vh;
   }
 }
+
+.all-songs {
+  background-color: rgb(38, 34, 54);
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.all-stories {
+  background-color: rgb(32, 32, 32);
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.all-stories button {
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0.5rem;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.all-songs button {
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0.5rem;
+  color: white;
+  border: 2px solid white;
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+.story-card img {
+  width: 100%;
+}
+
+/* .song-card h1,
+h2,
+p {
+  padding: 0rem 1rem;
+}
+
+.story-card h1,
+h2,
+p {
+  padding: 0rem 1rem;
+} */
