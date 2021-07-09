@@ -9,8 +9,22 @@ const SongCard = (props) => {
       <ReactPlayer url={props.song.song_link} />
       <h1>{props.song.title}</h1>
       <h2>{props.song.artist}</h2>
-      {lyric ? <p>{props.song.lyrics}</p> : null}
+      {lyric ? (
+        <p
+          style={{
+            whiteSpace: 'pre-line',
+            overflowY: 'scroll',
+            height: '200px',
+            width: '100%'
+          }}
+        >
+          {props.song.lyrics}
+        </p>
+      ) : null}
       <button onClick={() => setLyric(!lyric)}>Show Lyrics</button>
+      <button onClick={() => props.handleSongDelete(props.song.id)}>
+        Delete
+      </button>
     </div>
   )
 }
