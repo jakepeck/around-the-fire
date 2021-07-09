@@ -27,7 +27,12 @@ const AllSongs = (props) => {
       </div>
       <h2>Song List:</h2>
       {allSongs}
-      <Modal isOpen={modalOpen} onRequestClose={() => toggleModalOpen(false)}>
+      <Modal
+        className="modal"
+        isOpen={modalOpen}
+        onRequestClose={() => toggleModalOpen(false)}
+      >
+        <h1>Add A Song:</h1>
         <form onSubmit={postSong}>
           <input
             type="text"

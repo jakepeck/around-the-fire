@@ -195,7 +195,7 @@ p {
 
 form {
   justify-items: center;
-  margin-top: 2rem;
+  margin-top: 0.5rem;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 4fr 1fr;
   font-family: Georgia, sans-serif;
@@ -218,4 +218,19 @@ form textarea {
   margin: 0.5em 0;
   height: 80%;
   font-family: Georgia, sans-serif;
+  border: 1px solid lightgray;
+}
+
+.modal h1 {
+  margin: 0;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: rgb(38, 34, 54);
+}
+
+form button {
+  padding: 0.5rem 1rem;
+  background-color: rgb(38, 34, 54);
+  font-family: 'Gloria Hallelujah', cursive;
+  color: white;
+  border: transparent;
 }
