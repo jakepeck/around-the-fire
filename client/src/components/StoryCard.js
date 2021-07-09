@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from 'react'
+import Client from '../services'
 
 const StoryCard = (props) => {
   const [content, setContent] = useState(false)
+
+  const handleClick = async (id) => {
+    setContent(!content)
+    const res = await Client.get(`/stories/${id}`)
+    const comments = res.data.comments
+    console.log(comments)
+  }
 
   return (
     <div className="story-card">
@@ -11,7 +19,8 @@ const StoryCard = (props) => {
       {content ? (
         <p style={{ whiteSpace: 'pre-line' }}>{props.story.content}</p>
       ) : null}
-      <button onClick={() => setContent(!content)}>Show Story</button>
+
+      <button onClick={() => handleClick(props.story.id)}>Show Story</button>
       <button onClick={() => props.handleDelete(props.story.id)}>
         Delete Story
       </button>

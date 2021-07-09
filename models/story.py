@@ -14,6 +14,7 @@ class Story(db.Model):
         db.DateTime, default=datetime.utcnow, nullable=False)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow(
     ), nullable=False, onupdate=datetime.utcnow)
+    comments = db.relationship("Comment", cascade='all', backref=db.backref('comments', lazy=True))
 
     def __init__(self, title, author, story_image, content):
         self.title = title

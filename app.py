@@ -3,10 +3,11 @@ from flask_restful import Api
 from flask_cors import CORS
 from flask_migrate import Migrate
 # only for flask migrate
-from models import story, song
+from models import story, song, comment
 # # only for flask migrate
-from resources import story, song
+from resources import story, song, comment
 from models.db import db
+
 
 
 app = Flask(__name__)
@@ -27,6 +28,7 @@ api.add_resource(story.Stories, '/stories')
 api.add_resource(story.StoryDetail, '/stories/<int:story_id>')
 api.add_resource(song.Songs, '/songs')
 api.add_resource(song.SongDetail, '/songs/<int:song_id>')
+api.add_resource(comment.Comments,'/comments')
 
 if __name__ == '__main__':
     app.run(debug=True)

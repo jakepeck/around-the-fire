@@ -1,8 +1,9 @@
 from flask import request
 from flask_restful import Resource
 from models.story import Story
+from models.comment import Comment
 from models.db import db
-# from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload
 
 
 class Stories(Resource):
@@ -17,10 +18,20 @@ class Stories(Resource):
         return story.json(), 201
 
 
+
+    #     class UserDetail(Resource):
+    # def get(self, user_id):
+    #     user = User.query.options(joinedload(
+    #         'posts')).filter_by(id=user_id).first()
+    #     posts = [p.json() for p in user.posts]
+    #     return {**user.json(), "posts": posts}
+
+
 class StoryDetail(Resource):
     def get(self, story_id):
-        story = Story.find_by_id(story_id)
-        return {**story.json()}, 200
+        story = Story.query.options(joinedload('comments')).filter_by(id=story_id).first()
+        comments = [c.json() for c in story.comments]
+        return {**story.json(), "comments": comments}, 200
 
     def put(self, story_id):
         data = request.get_json()
