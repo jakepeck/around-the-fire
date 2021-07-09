@@ -13,18 +13,18 @@ const SongCard = (props) => {
         <p
           style={{
             whiteSpace: 'pre-line',
-            overflowY: 'scroll',
-            height: '200px',
-            width: '100%'
+            overflowY: 'scroll'
           }}
         >
           {props.song.lyrics}
         </p>
       ) : null}
-      <button onClick={() => setLyric(!lyric)}>Show Lyrics</button>
-      <button onClick={() => props.handleSongDelete(props.song.id)}>
-        Delete
-      </button>
+      <div className="btns-container">
+        <button onClick={() => setLyric(!lyric)}>SHOW LYRICS</button>
+        <button onClick={() => props.handleSongDelete(props.song.id)}>
+          DELETE SONG
+        </button>
+      </div>
     </div>
   )
 }
