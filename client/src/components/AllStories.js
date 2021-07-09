@@ -3,7 +3,9 @@ import StoryCard from './StoryCard'
 
 const AllStories = (props) => {
   const storyList = props.stories.map((story, index) => {
-    return <StoryCard key={index} story={story} />
+    return (
+      <StoryCard key={index} story={story} handleDelete={props.handleDelete} />
+    )
   })
 
   return (

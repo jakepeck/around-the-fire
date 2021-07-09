@@ -36,13 +36,19 @@ function App() {
     console.log(expandSongs)
   }
 
+  const handleStoryDelete = async (id) => {
+    await Client.delete(`/stories/${id}`)
+    let currentStories = [...stories].filter((story) => story.id !== id)
+    setStories(currentStories)
+  }
+
   useEffect(() => {
     getStories()
     getSongs()
   }, [])
 
   if (expandStories) {
-    return <AllStories stories={stories} />
+    return <AllStories stories={stories} handleDelete={handleStoryDelete} />
   }
   if (expandSongs) {
     return <AllSongs songs={songs} />
