@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react'
 import Client from './services'
 import AllSongs from './components/AllSongs'
 import AllStories from './components/AllStories'
+import { Modal } from 'react-rainbow-components'
 
 function App() {
   const [stories, setStories] = useState([])
@@ -13,10 +14,16 @@ function App() {
   const [selectedSong, setSelectedSong] = useState(null)
   const [expandSongs, toggleExpandSongs] = useState(false)
   const [expandStories, toggleExpandStories] = useState(false)
+  const [modalOpen, toggleModalOpen] = useState(false)
+  const [storyForm, setStoryForm] = useState({
+    title: '',
+    author: '',
+    story_image: '',
+    content: ''
+  })
 
   const getStories = async () => {
     let res = await Client.get('/stories')
-    console.log(res.data)
     setStories(res.data)
   }
 
@@ -28,12 +35,10 @@ function App() {
 
   const handleClickedStories = () => {
     toggleExpandStories(true)
-    console.log(expandStories)
   }
 
   const handleClickedSongs = () => {
     toggleExpandSongs(true)
-    console.log(expandSongs)
   }
 
   const handleStoryDelete = async (id) => {
@@ -42,13 +47,43 @@ function App() {
     setStories(currentStories)
   }
 
+  const handleChangeStory = (e) => {
+    const { name, value } = e.target
+    setStoryForm({ ...storyForm, [name]: value })
+  }
+
+  const postStory = async (e) => {
+    e.preventDefault()
+    console.log(storyForm.story_image)
+    const newStory = await Client.post(`/stories`, storyForm)
+    setStoryForm({
+      title: '',
+      author: '',
+      story_image: '',
+      content: ''
+    })
+    console.log(newStory)
+    toggleModalOpen(false)
+    setStories([...stories, newStory.data])
+  }
+
   useEffect(() => {
     getStories()
     getSongs()
   }, [])
 
   if (expandStories) {
-    return <AllStories stories={stories} handleDelete={handleStoryDelete} />
+    return (
+      <AllStories
+        stories={stories}
+        handleDelete={handleStoryDelete}
+        handleChangeStory={handleChangeStory}
+        storyForm={storyForm}
+        toggleModalOpen={toggleModalOpen}
+        modalOpen={modalOpen}
+        postStory={postStory}
+      />
+    )
   }
   if (expandSongs) {
     return <AllSongs songs={songs} />
@@ -69,8 +104,6 @@ function App() {
           SONGS
         </div>
       </div>
-      {/* <AllStories stories={stories} />
-      <AllSongs songs={songs} /> */}
     </div>
   )
 }
