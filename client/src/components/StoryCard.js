@@ -74,6 +74,7 @@ const StoryCard = (props) => {
           ) : null}
         </div>
       ) : null}
+      <br />
       <button
         className="delete-btn"
         onClick={() => props.handleDelete(props.story.id)}

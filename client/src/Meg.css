@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gloria+Hallelujah&family=Shadows+Into+Light&family=Tourney:wght@100&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&family=Open+Sans&display=swap');
 
 .main-wrapper {
   display: flex;
@@ -210,6 +210,18 @@ h2 {
 
 .story-card img {
   width: 100%;
+}
+
+.comment-card {
+  font-family: 'Open Sans', sans-serif;
+  background-color: rgb(32, 32, 32);
+  border: solid 1px white;
+  width: 90%;
+  height: 75px;
+  margin-bottom: 30px;
+  margin-left: 20px;
+  margin-right: 10px;
+  border-radius: 5px;
 }
 
 /* .song-card h1,
