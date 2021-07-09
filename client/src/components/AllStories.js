@@ -19,7 +19,7 @@ const AllStories = (props) => {
   })
 
   return (
-    <div>
+    <div className="all-stories">
       <button onClick={() => toggleExpandStories(false)}>Back to Home</button>
       <button onClick={() => toggleModalOpen(true)}>Contribute Story</button>
       <h2>Stories:</h2>
