@@ -125,9 +125,11 @@ h2 {
 
 .comment-input-container {
   display: flex;
+  justify-content: center;
+  width: 100%;
 }
 .comment-input {
-  width: 80%;
+  width: 70%;
   height: 100px;
 }
 
@@ -219,8 +221,8 @@ h2 {
   width: 90%;
   height: 75px;
   margin-bottom: 30px;
-  margin-left: 20px;
-  margin-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 5px;
 }
 
