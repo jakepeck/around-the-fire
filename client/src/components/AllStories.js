@@ -20,12 +20,19 @@ const AllStories = (props) => {
 
   return (
     <div className="all-stories">
-      <button onClick={() => toggleExpandStories(false)}>Back to Home</button>
-      <button onClick={() => toggleModalOpen(true)}>Contribute Story</button>
+      <div>
+        <button onClick={() => toggleExpandStories(false)}>Back to Home</button>
+        <button onClick={() => toggleModalOpen(true)}>Contribute Story</button>
+      </div>
       <h2>Stories:</h2>
       <div>{storyList}</div>
-      <Modal isOpen={modalOpen} onRequestClose={() => toggleModalOpen(false)}>
+      <Modal
+        className="modal"
+        isOpen={modalOpen}
+        onRequestClose={() => toggleModalOpen(false)}
+      >
         <form onSubmit={postStory}>
+          <h1>Add a Scary Story</h1>
           <input
             type="text"
             name="title"
