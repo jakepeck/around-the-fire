@@ -1,8 +1,8 @@
-"""add comment
+"""comments add
 
-Revision ID: 4b4d724514e9
+Revision ID: bd237f15f82b
 Revises: 5dc07db7f54f
-Create Date: 2021-07-09 09:01:17.083768
+Create Date: 2021-07-09 12:35:37.326367
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4b4d724514e9'
+revision = 'bd237f15f82b'
 down_revision = '5dc07db7f54f'
 branch_labels = None
 depends_on = None
