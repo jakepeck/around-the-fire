@@ -10,6 +10,9 @@ const StoryCard = (props) => {
       <h2>{props.story.author}</h2>
       {content ? <p>{props.story.content}</p> : null}
       <button onClick={() => setContent(!content)}>Show Story</button>
+      <button onClick={() => props.handleDelete(props.story.id)}>
+        Delete Story
+      </button>
     </div>
   )
 }
