@@ -21,8 +21,10 @@ const AllSongs = (props) => {
 
   return (
     <div className="all-songs">
-      <button onClick={() => toggleExpandSongs(false)}>Back to Home</button>
-      <button onClick={() => toggleModalOpen(true)}>Contribute Song</button>
+      <div className="btns-container">
+        <button onClick={() => toggleExpandSongs(false)}>BACK TO HOME</button>
+        <button onClick={() => toggleModalOpen(true)}>CONTRIBUTE SONG</button>
+      </div>
       <h2>Song List:</h2>
       {allSongs}
       <Modal isOpen={modalOpen} onRequestClose={() => toggleModalOpen(false)}>

@@ -1,8 +1,16 @@
+<<<<<<< HEAD:migrations/versions/bd237f15f82b_comments_add.py
 """comments add
 
 Revision ID: bd237f15f82b
 Revises: 5dc07db7f54f
 Create Date: 2021-07-09 12:35:37.326367
+=======
+"""creatingcomment  tables
+
+Revision ID: a3babe1ecb13
+Revises: 5dc07db7f54f
+Create Date: 2021-07-09 11:39:31.185839
+>>>>>>> 85c6df7c9589bca88266f24478ff3edc519101e1:migrations/versions/a3babe1ecb13_creatingcomment_tables.py
 
 """
 from alembic import op
@@ -10,7 +18,11 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
+<<<<<<< HEAD:migrations/versions/bd237f15f82b_comments_add.py
 revision = 'bd237f15f82b'
+=======
+revision = 'a3babe1ecb13'
+>>>>>>> 85c6df7c9589bca88266f24478ff3edc519101e1:migrations/versions/a3babe1ecb13_creatingcomment_tables.py
 down_revision = '5dc07db7f54f'
 branch_labels = None
 depends_on = None
