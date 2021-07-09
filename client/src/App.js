@@ -21,6 +21,12 @@ function App() {
     story_image: '',
     content: ''
   })
+  const [songForm, setSongForm] = useState({
+    title: '',
+    artist: '',
+    song_link: '',
+    lyrics: ''
+  })
 
   const getStories = async () => {
     let res = await Client.get('/stories')
@@ -47,14 +53,24 @@ function App() {
     setStories(currentStories)
   }
 
+  const handleSongDelete = async (id) => {
+    await Client.delete(`/songs/${id}`)
+    let currentSongs = [...songs].filter((song) => song.id !== id)
+    setSongs(currentSongs)
+  }
+
   const handleChangeStory = (e) => {
     const { name, value } = e.target
     setStoryForm({ ...storyForm, [name]: value })
   }
 
+  const handleChangeSong = (e) => {
+    const { name, value } = e.target
+    setSongForm({ ...songForm, [name]: value })
+  }
+
   const postStory = async (e) => {
     e.preventDefault()
-    console.log(storyForm.story_image)
     const newStory = await Client.post(`/stories`, storyForm)
     setStoryForm({
       title: '',
@@ -62,9 +78,21 @@ function App() {
       story_image: '',
       content: ''
     })
-    console.log(newStory)
     toggleModalOpen(false)
     setStories([...stories, newStory.data])
+  }
+
+  const postSong = async (e) => {
+    e.preventDefault()
+    const newSong = await Client.post(`/songs`, songForm)
+    setSongForm({
+      title: '',
+      artist: '',
+      song_link: '',
+      lyrics: ''
+    })
+    toggleModalOpen(false)
+    setSongs([...songs, newSong.data])
   }
 
   useEffect(() => {
@@ -82,11 +110,23 @@ function App() {
         toggleModalOpen={toggleModalOpen}
         modalOpen={modalOpen}
         postStory={postStory}
+        toggleExpandStories={toggleExpandStories}
       />
     )
   }
   if (expandSongs) {
-    return <AllSongs songs={songs} />
+    return (
+      <AllSongs
+        songs={songs}
+        toggleExpandSongs={toggleExpandSongs}
+        handleSongDelete={handleSongDelete}
+        toggleModalOpen={toggleModalOpen}
+        modalOpen={modalOpen}
+        songForm={songForm}
+        postSong={postSong}
+        handleChangeSong={handleChangeSong}
+      />
+    )
   }
   return (
     <div className="main-wrapper">

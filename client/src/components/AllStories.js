@@ -10,7 +10,8 @@ const AllStories = (props) => {
     storyForm,
     toggleModalOpen,
     modalOpen,
-    postStory
+    postStory,
+    toggleExpandStories
   } = props
 
   const storyList = stories.map((story, index) => {
@@ -19,35 +20,40 @@ const AllStories = (props) => {
 
   return (
     <div>
+      <button onClick={() => toggleExpandStories(false)}>Back to Home</button>
       <button onClick={() => toggleModalOpen(true)}>Contribute Story</button>
       <h2>Stories:</h2>
       <div>{storyList}</div>
       <Modal isOpen={modalOpen} onRequestClose={() => toggleModalOpen(false)}>
         <form onSubmit={postStory}>
           <input
+            type="text"
             name="title"
             placeholder="Story Title"
             value={storyForm.title}
             onChange={handleChangeStory}
           ></input>
           <input
+            type="text"
             name="author"
             placeholder="Story Author"
             value={storyForm.author}
             onChange={handleChangeStory}
           ></input>
           <input
+            type="text"
             name="story_image"
             placeholder="Story Image"
             value={storyForm.story_image}
             onChange={handleChangeStory}
           ></input>
-          <input
+          <textarea
             name="content"
             placeholder="Story"
+            className="story-input"
             value={storyForm.content}
             onChange={handleChangeStory}
-          ></input>
+          ></textarea>
           <button>Submit</button>
         </form>
       </Modal>
